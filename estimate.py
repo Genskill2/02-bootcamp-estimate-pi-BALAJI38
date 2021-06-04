@@ -30,3 +30,23 @@ class TestMC(unittest.TestCase):
     
 if __name__ == "__main__":
     unittest.main()
+def wallis(n):
+    pp = 1
+    while n != 0:
+        pp = pp*(4*n*n)/(4*n*n-1)
+        n = n-1
+    return 2*pp
+def monte_carlo(n):
+    cp = 0
+    sp = 0
+    while n != 0:
+        a = random.random()
+        b = random.random()
+        val = a**2+b**2
+        if val <= 1:
+            cp = cp + 1
+        else:
+            sp = sp + 1
+        n = n - 1    
+    ratio = cp/(cp + sp)
+    return 4*ratio
